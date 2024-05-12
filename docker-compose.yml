@@ -1,0 +1,37 @@
+services:
+  # Next.js Admin (localhost:3000)
+  nextjs-ecommerce-admin:
+    build:
+      context: ./nextjs-ecommerce-admin
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./nextjs-ecommerce-admin:/app
+    depends_on:
+      - db
+
+  # Next.js Store (localhost:3001)
+  nextjs-ecommerce-store:
+    build:
+      context: ./nextjs-ecommerce-store
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./nextjs-ecommerce-store:/app
+
+  # PostgreSQL Database
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: Jollykayak378!
+      POSTGRES_USERNAME: memo
+      POSTGRES_DB: nextjs-ecommerce
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:

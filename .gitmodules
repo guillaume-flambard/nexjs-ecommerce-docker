@@ -1,0 +1,8 @@
+[submodule "nextjs-e-commerce-admin"]
+	path = nextjs-e-commerce-admin
+	url = https://github.com/guillaume-flambard/nextjs-e-commerce-admin
+	branch = docker
+[submodule "nextjs-e-commerce-store"]
+	path = nextjs-e-commerce-store
+	url = https://github.com/guillaume-flambard/nextjs-e-commerce-store
+	branch = docker
